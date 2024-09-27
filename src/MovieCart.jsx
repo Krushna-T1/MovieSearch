@@ -24,7 +24,7 @@ function MovieCart(props) {
                  onClick={()=>{props.handleView(props.imdbID)}}>
                   <i class="fas fa-star fa-lg">More</i>
               </button>
-          </div>}</li>
+          </div></li>
               
             
              </ul>
