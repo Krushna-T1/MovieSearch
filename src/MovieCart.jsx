@@ -13,21 +13,22 @@ function MovieCart(props) {
             <ul className="list-group list-group-flush">
              <li className="list-group-item">Released: {props.year}</li>
               <li className="list-group-item">Type: {props.type}</li>
-              
-            
-             </ul>
-            <div className="card-body d-flex">
+              <li className="list-group-item">  
+                  <div className="card-body d-flex">
                <button className="btn btn-outline-warning"
                  onClick={()=>{props.handleFavorite(props.imdbID)}} >
                   <i class="fas fa-star fa-lg">{props.text}</i>
-                 
               </button>
              
               <button className="btn btn-primary"
                  onClick={()=>{props.handleView(props.imdbID)}}>
                   <i class="fas fa-star fa-lg">More</i>
               </button>
-          </div>
+          </div>}</li>
+              
+            
+             </ul>
+          
         </div>
         </div>
       </div>
