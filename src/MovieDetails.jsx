@@ -39,13 +39,13 @@ function MovieDetails(props) {
       {error && <h5 className="text-danger d-flex justify-content-center" >Error: {error}</h5>}
       {details ? (
       <div className="card mb-3 max-width-540  bg-dark bg-gradient">
-        <div className="row g-0">
-          <div className="col-md-3 mx-auto">
+        <div className="row g-0 ">
+          <div className="col-md">
             <img src={details.Poster} className="card-image" alt="..." />
          </div>
-        <div className="col-md-8 mx-auto">
+        <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title fw-bolder fs-1 text-light">
+            <h5 className="card-title fw-bolder fs-1 texttext-light">
               {details.Title}
             </h5>
           </div>
