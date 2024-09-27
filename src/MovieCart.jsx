@@ -17,13 +17,15 @@ function MovieCart(props) {
             
              </ul>
             <div className="card-body d-flex">
-              <button className="card-link btn btn-primary m-1"
+               <button className="btn btn-outline-warning"
                  onClick={()=>{props.handleFavorite(props.imdbID)}} >
-                 {props.text}
+                  <i class="fas fa-star fa-lg">{props.text}</i>
+                 
               </button>
-              <button className="btn btn-primary m-1"
+             
+              <button className="btn btn-primary"
                  onClick={()=>{props.handleView(props.imdbID)}}>
-                  More Details
+                  <i class="fas fa-star fa-lg">More</i>
               </button>
           </div>
         </div>
