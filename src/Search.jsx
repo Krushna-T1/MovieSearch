@@ -1,5 +1,5 @@
-import useRef from "react";
-import React from "react";
+import React, { useRef } from "react";
+
 
 function Search(props) {
  
