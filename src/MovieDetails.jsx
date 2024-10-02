@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import React from "react";
 function MovieDetails(props) {
   const [details, setDetails] = useState(null);
   const [error, setError] = useState("");
@@ -85,4 +85,4 @@ function MovieDetails(props) {
   );
 }
 
-export default MovieDetails;
+export default React.memo(MovieDetails);
