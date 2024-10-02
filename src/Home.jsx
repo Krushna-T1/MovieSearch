@@ -74,13 +74,13 @@ function Home(props) {
         <Search onSearch={SearchMovie} />
         {loading && (
          <div className='d-flex justify-content-center text-success' >
-           <div class="spinner-border text-light" role="status">
-             <span class="sr-only"></span>
+           <div className="spinner-border text-light" role="status">
+             <span className="sr-only"></span>
             </div>
           </div>
         )}
         {error && (
-          <div class="alert alert-danger" role="alert">
+          <div className="alert alert-danger" role="alert">
        <h5 className='d-flex justify-content-center text-danger'>
              {error}
           </h5>
