@@ -45,7 +45,7 @@ function MovieDetails(props) {
       <div className="card mb-3 max-width-540  bg-dark bg-gradient">
         <div className="row g-0 ">
           <div className="col-md">
-            <img src={details.Poster} className="card-image" alt={details.Title}|| "Unavailable" />
+            <img src={details.Poster} className="card-image" alt={details.Title || "Unavailable"} />
          </div>
         <div className="col-md-8">
           <div className="card-body">
