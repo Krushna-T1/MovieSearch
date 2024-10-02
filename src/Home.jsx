@@ -1,4 +1,5 @@
-import { useState} from 'react';
+import { useCallback, useState} from 'react';
+import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Search from './Search.jsx';
@@ -35,25 +36,35 @@ function Home(props) {
   };
 
 
-  //Function to add to favorite
-  const addToFav = async (id) => {
+// Function to add to favorite
+   const addToFav = useCallback((id) => {
     try {
-      const response = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=7f6f2553`);
-      if (!response.ok) {
-        throw new Error("Unable to Add to Favorite");
+     
+      // Find the movie details from the already fetched movie list
+      const isMovie = movie.Search.find((m) => m.imdbID === id);
+
+      if (isMovie) {
+        // store the needed properties in localStorage
+        const storeMovie = {
+          imdbID: isMovie.imdbID,
+          Title: isMovie.Title,
+          Year: isMovie.Year,
+          Type: isMovie.Type,
+          Poster:isMovie.Poster,
+        };
+
+        // Store in localStorage
+        localStorage.setItem(id, JSON.stringify(storeMovie));
+
+        // Show success notification
+        toast.success(`${isMovie.Title} Added To Favorites Successfully`, {
+          autoClose: 2000,
+        });
       }
-      const fullDetails = await response.json();
-      if (fullDetails.Response === "False") {
-        throw new Error(fullDetails.Error);
-      }
-      localStorage.setItem(id, JSON.stringify(fullDetails));
-      toast.success(`${fullDetails.Title} Added To Favorites Successfully`, {
-        autoClose: 2000,
-      });
     } catch (error) {
-      setError(error.message);
+      setError("Failed to add to favorites");
     }
-  };
+  },[movie]);
 
   return (
     <div>
@@ -104,4 +115,4 @@ function Home(props) {
   );
 }
 
-export default Home;
+export default React.memo(Home);
