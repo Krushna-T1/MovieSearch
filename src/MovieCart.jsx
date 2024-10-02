@@ -1,3 +1,4 @@
+import React from "react";
 function MovieCart(props) {
     
   
@@ -35,7 +36,7 @@ function MovieCart(props) {
     );
   }
   
-  export default MovieCart;
+export default React.memo(MovieCart);
   
 
   // style={{ height: '50%', objectFit: 'fill' }}
