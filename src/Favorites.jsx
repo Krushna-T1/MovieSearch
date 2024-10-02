@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React from "react";
 import MovieCart from "./MovieCart";
 import MovieDetails from "./MovieDetails";
 import { ToastContainer, toast } from 'react-toastify';
@@ -82,4 +83,4 @@ function Favorites(props) {
   );
 }
 
-export default Favorites;
+export default React.memo(Favorites);
