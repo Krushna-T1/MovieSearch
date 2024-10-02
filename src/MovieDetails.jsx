@@ -36,12 +36,16 @@ function MovieDetails(props) {
 
   return (
     <div className="container  ">
-      {error && <h5 className="text-danger d-flex justify-content-center" >Error: {error}</h5>}
+      {error && <div class="alert alert-danger" role="alert">
+       <h5 className='d-flex justify-content-center text-danger'>
+             {error}
+          </h5>
+        </div>}
       {details ? (
       <div className="card mb-3 max-width-540  bg-dark bg-gradient">
         <div className="row g-0 ">
           <div className="col-md">
-            <img src={details.Poster} className="card-image" alt="..." />
+            <img src={details.Poster} className="card-image" alt={details.Title}|| "Unavailable" />
          </div>
         <div className="col-md-8">
           <div className="card-body">
@@ -79,7 +83,11 @@ function MovieDetails(props) {
       </div>
 
       ) : (
-        <h5 className="text-success d-flex justify-content-center">Loading...</h5>
+        <div className='d-flex justify-content-center text-success' >
+           <div class="spinner-border text-light" role="status">
+              <span class="sr-only"></span>
+           </div>
+        </div>
       )}
   </div>
   );
