@@ -49,7 +49,7 @@ function MovieDetails(props) {
          </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title fw-bolder fs-1 texttext-light">
+            <h5 className="card-title fw-bolder fs-1 text-light">
               {details.Title}
             </h5>
           </div>
