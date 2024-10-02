@@ -1,9 +1,10 @@
-
-import {useRef } from "react";
+import { useRef } from "react";
 import React from "react";
-function Search(props){
 
-   // Using useRef instead of useState
+function Search(props) {
+ 
+
+  // Using useRef instead of useState
   const inputRef = useRef(null);
 
   const handleClick = (e) => {
@@ -19,32 +20,21 @@ function Search(props){
     // Clear the input after submission
     inputRef.current.value = "";
   };
-  
-    return(
 
-        
-  <div className="container-fluid  p-1" >
-    <form className="d-flex justify-content-center"
-          id="form"
-          name="searchTearm" 
-          role="search" 
-          onSubmit={handleClick}>
-            
-      <input className="form-control p-2 alert-dark me-2 w-50"
-         type="search" 
-         placeholder="Search Movie ...."  
-         aria-label="Search "
-         value={searchText}
-         onChange={handleInput} />
-      
-      <button className="btn btn-outline-success" type="submit" >Search</button>
-    </form>
-  </div>
-
-  
-
-        
-    );
+  return (
+    <div className="container-fluid p-1">
+      <form className="d-flex justify-content-center" id="form" name="searchTerm" role="search" onSubmit={handleClick}>
+        <input
+          className="form-control p-2 alert-dark me-2 w-50"
+          type="search"
+          placeholder="Search Movie ...."
+          aria-label="Search"
+          ref={inputRef}  // Assign ref to input
+        />
+        <button className="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  );
 }
 
 export default React.memo(Search);
