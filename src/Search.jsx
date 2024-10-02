@@ -1,23 +1,24 @@
 
 import { useState } from "react";
+import React from "react";
 function Search(props){
 
-    const [searchText,setSearchText]=useState('');
+   // Using useRef instead of useState
+  const inputRef = useRef(null);
+
+  const handleClick = (e) => {
+   
+
+    e.preventDefault();
+
+    // Get value from ref when submitting
+    const searchText = inputRef.current.value;
+    props.onSearch(searchText);  // Pass the search text to the parent component
     // console.log(searchText);
 
-      function handleInput(e){
-        setSearchText(e.target.value);
-       
-
-      
-
-    }
-    const handleClick =(e)=>{
-        e.preventDefault();
-        props.onSearch(searchText);
-        console.log(searchText);
-        setSearchText("");
-    }
+    // Clear the input after submission
+    inputRef.current.value = "";
+  };
   
     return(
 
@@ -46,4 +47,4 @@ function Search(props){
     );
 }
 
-export default Search;
+export default React.memo(Search);
